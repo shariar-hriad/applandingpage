@@ -2,10 +2,12 @@
   "devDependencies": {
     "autoprefixer": "^10.4.7",
     "postcss-import": "^14.1.0",
+    "prettier": "^2.6.2",
+    "prettier-plugin-tailwindcss": "^0.1.10",
     "tailwindcss": "^3.0.24"
   },
   "scripts": {
-    "start": "npx tailwindcss -i ./src/input.css -o ./dist/output.css --watch"
+    "start": "npx tailwindcss -i ./src/input.css -o ./src/css/output.css --watch"
   },
   "dependencies": {
     "tw-elements": "^1.0.0-alpha12"

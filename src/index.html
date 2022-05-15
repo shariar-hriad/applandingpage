@@ -1,157 +1,543 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;600;700&family=Poppins&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <link rel="stylesheet" href="../dist/output.css" />
-    <title>App Landing Page</title>
-  </head>
-  <body class="bg-[#F4FEFF]">
-    <!-- overlary -->
-    <div
-      class="fixed bg-black/[0.5] left-0 top-0 right-0 bottom-0 w-full z-10 opacity-0 invisible hidden transition-all duration-300"
-      id="overlay"
-    ></div>
-    <!-- overlary -->
-    <!-- header -->
-    <header class="py-3 relative z-auto">
-      <div class="container flex justify-between items-center">
-        <!-- logo -->
-        <a class="block w-28" href="index.html">
-          <img src="./img/logo.webp" alt="" />
-        </a>
-        <!-- logo -->
-        <!-- navbar button -->
-        <button class="text-2xl lg:hidden" id="mobileMenuButton">
-          <i class="fa-solid fa-bars pointer-events-none"></i>
-        </button>
-        <!-- navbar button -->
-        <!-- navbar -->
-        <nav
-          class="bg-[#F4FEFF] fixed -left-full lg:left[unset] top-0 lg:top-[unset] bottom-0 lg:bottom-[unset] w-80 lg:w-auto px-7 lg:px-0 py-8 lg:py-0 z-[999] lg:static transition-all duration-300"
-          id="navbar"
-        >
-          <ul class="flex flex-col gap-4 lg:flex-row">
-            <li>
-              <a class="font-normal text-base text-[#450b78]" href="index.html"
-                >Home</a
-              >
-            </li>
-            <li>
-              <a
-                class="font-normal text-base text-[#450b78]"
-                href="feature.html"
-                >Feature</a
-              >
-            </li>
-            <li>
-              <a
-                class="font-normal text-base text-[#450b78]"
-                href="services.html"
-                >Services</a
-              >
-            </li>
-            <li>
-              <a
-                class="font-normal text-base text-[#450b78]"
-                href="pricing.html"
-                >Pricing</a
-              >
-            </li>
-            <li>
-              <a class="font-normal text-base text-[#450b78]" href="pages.html"
-                >Pages</a
-              >
-            </li>
-            <li>
-              <a
-                class="font-normal text-base text-[#450b78]"
-                href="contact.html"
-                >Contact</a
-              >
-            </li>
-          </ul>
-          <div
-            class="absolute bottom-0 left-0 bg-[#DA1276] w-24 h-24 rounded-tr-full overflow-hidden flex items-center justify-center lg:hidden lg:invisible lg:opacity-0"
-          >
-            <button class="text-white text-3xl mt-4 mr-4" id="closeMenu">
-              <i class="fa-solid fa-xmark pointer-events-none"></i>
-            </button>
-          </div>
-        </nav>
-        <!-- navbar -->
-      </div>
-    </header>
-    <!-- header -->
-    <!-- main -->
-    <main>
-      <section class="py-8 md:py-14">
-        <div class="container">
-          <div
-            class="flex flex-col-reverse md:flex-row md:items-center md:justify-between gap-5"
-          >
-            <!-- content -->
-            <div class="flex flex-col gap-6 max-w-2xl">
-              <p class="text-[#2b044d] text-base uppercase">App Landing Page</p>
-              <h1
-                class="text-3xl md:text-[55px] lg:text-[65px] leading-[41px] md:leading-[66px] lg:leading-[85px] text-[#2b044d] font-bold"
-              >
-                Get Things done with Appco
-              </h1>
-              <p class="text-base leading-[30px] text-[#707b8e]">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                Possimus provident, quidem quas necessitatibus corrupti cumque
-                sapiente?
-              </p>
-              <div class="flex gap-5">
-                <button
-                  class="text-base leading-[0] font-normal bg-[#f9218d] hover:bg-[#DA1276] capitalize inline-block rounded-full text-white py-6 px-6 focus:outline-none"
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            rel="shortcut icon"
+            href="./img/favicon.ico"
+            type="image/x-icon"
+        />
+        <!-- google fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;600;700&family=Poppins:wght@300;400&display=swap"
+            rel="stylesheet"
+        />
+        <!-- fontawesome -->
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+            integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+        <!-- aos -->
+        <link
+            href="https://unpkg.com/aos@2.3.1/dist/aos.css"
+            rel="stylesheet"
+        />
+        <!-- owl carousel -->
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+            integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
+            integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+        <!-- custom css -->
+        <link rel="stylesheet" href="./css/output.css" />
+        <title>App Landing Page</title>
+    </head>
+    <body>
+        <!-- overlary -->
+        <div
+            class="invisible fixed left-0 top-0 right-0 bottom-0 z-10 hidden w-full bg-black/[0.5] opacity-0 transition-all duration-300 lg:hidden"
+            id="overlay"
+        ></div>
+        <!-- overlary -->
+        <!-- header -->
+        <header class="relative z-auto bg-[#F4FEFF] py-3">
+            <div class="container flex items-center justify-between">
+                <!-- logo -->
+                <a class="block w-28" href="index.html">
+                    <img src="./img/logo.webp" alt="" />
+                </a>
+                <!-- logo -->
+                <!-- navbar button -->
+                <button class="text-2xl lg:hidden" id="mobileMenuButton">
+                    <i class="fa-solid fa-bars pointer-events-none"></i>
+                </button>
+                <!-- navbar button -->
+                <!-- navbar -->
+                <nav
+                    class="lg:left[unset] fixed -left-full top-0 bottom-0 z-[999] w-64 bg-[#F4FEFF] px-7 py-8 transition-all duration-300 sm:w-80 lg:static lg:top-[unset] lg:bottom-[unset] lg:z-0 lg:w-auto lg:px-0 lg:py-0"
+                    id="navbar"
                 >
-                  download
-                </button>
-                <button class="text-white bg-[#D852E8] w-14 h-14 rounded-full">
-                  <i class="fa-solid fa-play"></i>
-                </button>
-              </div>
+                    <ul class="flex flex-col gap-4 lg:flex-row">
+                        <li>
+                            <a
+                                class="text-base font-normal text-[#450b78]"
+                                href="index.html"
+                                >Home</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                class="text-base font-normal text-[#450b78]"
+                                href="feature.html"
+                                >Feature</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                class="text-base font-normal text-[#450b78]"
+                                href="services.html"
+                                >Services</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                class="text-base font-normal text-[#450b78]"
+                                href="pricing.html"
+                                >Pricing</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                class="text-base font-normal text-[#450b78]"
+                                href="pages.html"
+                                >Pages</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                class="text-base font-normal text-[#450b78]"
+                                href="contact.html"
+                                >Contact</a
+                            >
+                        </li>
+                    </ul>
+                    <div
+                        class="absolute bottom-0 left-0 flex h-24 w-24 items-center justify-center overflow-hidden rounded-tr-full bg-[#DA1276] lg:invisible lg:hidden lg:opacity-0"
+                    >
+                        <button
+                            class="mt-4 mr-4 text-3xl text-white"
+                            id="closeMenu"
+                        >
+                            <i
+                                class="fa-solid fa-xmark pointer-events-none"
+                            ></i>
+                        </button>
+                    </div>
+                </nav>
+                <!-- navbar -->
             </div>
-            <!-- content -->
-            <!-- img -->
-            <div>
-              <img src="./img/banner1.webp" alt="" />
-            </div>
-            <!-- img -->
-          </div>
-        </div>
-      </section>
-    </main>
-    <!-- main -->
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
-      integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js"
-      integrity="sha512-6PM0qYu5KExuNcKt5bURAoT6KCThUmHRewN3zUFNaoI6Di7XJPTMoT6K0nsagZKk2OB4L7E3q1uQKHNHd4stIQ=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
-    <script src="./js/main.js"></script>
-  </body>
+        </header>
+        <!-- header -->
+        <!-- main -->
+        <main>
+            <!-- banner -->
+            <section class="bg-[#F4FEFF] py-8 md:py-14 lg:py-28">
+                <div class="container">
+                    <div
+                        class="flex flex-col-reverse gap-5 md:flex-row md:items-center md:justify-between"
+                    >
+                        <!-- content -->
+                        <div class="flex w-full max-w-xl flex-col gap-6">
+                            <p
+                                class="text-base uppercase text-[#2b044d]"
+                                data-aos="fade-right"
+                                data-aos-delay="400"
+                                data-aos-duration="500"
+                            >
+                                App Landing Page
+                            </p>
+                            <h1
+                                class="text-3xl font-bold leading-[41px] text-[#2b044d] md:text-[55px] md:leading-[66px] lg:text-[65px] lg:leading-[85px]"
+                                data-aos="fade-up"
+                                data-aos-delay="600"
+                                data-aos-duration="600"
+                            >
+                                Get Things done with Appco
+                            </h1>
+                            <p
+                                class="text-base leading-[30px] text-[#707b8e]"
+                                data-aos="fade-up"
+                                data-aos-delay="800"
+                                data-aos-duration="650"
+                            >
+                                Lorem, ipsum dolor sit amet consectetur
+                                adipisicing elit. Possimus provident, quidem
+                                quas necessitatibus corrupti cumque sapiente?
+                            </p>
+                            <div class="flex gap-5">
+                                <button
+                                    class="inline-block rounded-full bg-[#f9218d] py-6 px-6 text-base font-normal capitalize leading-[0] text-white hover:bg-[#DA1276] focus:outline-none"
+                                    data-aos="fade-right"
+                                    data-aos-delay="900"
+                                    data-aos-duration="300"
+                                >
+                                    download
+                                </button>
+                                <button
+                                    class="h-14 w-14 rounded-full bg-[#D852E8] text-white"
+                                    data-aos="fade-left"
+                                    data-aos-delay="900"
+                                    data-aos-duration="300"
+                                >
+                                    <i class="fa-solid fa-play"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <!-- content -->
+                        <!-- img -->
+                        <div
+                            data-aos="fade-left"
+                            data-aos-delay="1000"
+                            data-aos-duration="600"
+                        >
+                            <img src="./img/banner1.webp" alt="" />
+                        </div>
+                        <!-- img -->
+                    </div>
+                </div>
+            </section>
+            <!-- banner -->
+
+            <!-- feature -->
+            <section class="py-8 md:py-14 lg:py-28">
+                <div class="container">
+                    <div
+                        class="flex flex-col gap-5 md:items-center lg:flex-row"
+                    >
+                        <div class="lg:w-4/12">
+                            <img
+                                class="mx-auto w-80"
+                                src="./img/feature.webp"
+                                alt=""
+                            />
+                        </div>
+                        <div class="lg:w-7/12">
+                            <h2
+                                class="mb-7 max-w-md text-3xl font-bold leading-[39px] text-[#2b044d] sm:text-[40px] sm:leading-[60px] md:mb-10 md:max-w-lg lg:mb-16 lg:text-[50px]"
+                            >
+                                Some of the best features Of Our App!
+                            </h2>
+                            <div class="grid grid-cols-1 gap-1 md:grid-cols-2">
+                                <div class="flex gap-3 py-3">
+                                    <div
+                                        class="flex h-[67px] w-[67px] flex-shrink-0 items-center justify-center rounded-full bg-gradient-to-t from-[#e78ae9] to-[#926ef8] text-3xl text-white"
+                                    >
+                                        <i
+                                            class="fa-solid fa-screwdriver-wrench"
+                                        ></i>
+                                    </div>
+                                    <div>
+                                        <h3
+                                            class="mb-3 text-2xl font-semibold text-[#23182c]"
+                                        >
+                                            Easy to Customize
+                                        </h3>
+                                        <p
+                                            class="text-base leading-7 text-[#707b8e]"
+                                        >
+                                            Lorem ipsum dolor sit amet
+                                            consectetur adipisicing elit. Nobis,
+                                            ipsa?
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="flex gap-3 py-3">
+                                    <div
+                                        class="flex h-[67px] w-[67px] flex-shrink-0 items-center justify-center rounded-full bg-gradient-to-t from-[#e78ae9] to-[#926ef8] text-3xl text-white"
+                                    >
+                                        <i
+                                            class="fa-solid fa-shield-halved"
+                                        ></i>
+                                    </div>
+                                    <div>
+                                        <h3
+                                            class="mb-3 text-2xl font-semibold text-[#23182c]"
+                                        >
+                                            Extreme Security
+                                        </h3>
+                                        <p
+                                            class="text-base leading-7 text-[#707b8e]"
+                                        >
+                                            Lorem ipsum dolor sit amet
+                                            consectetur adipisicing elit. Nobis,
+                                            ipsa?
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="flex gap-3 py-3">
+                                    <div
+                                        class="flex h-[67px] w-[67px] flex-shrink-0 items-center justify-center rounded-full bg-gradient-to-t from-[#e78ae9] to-[#926ef8] text-3xl text-white"
+                                    >
+                                        <i class="fa-solid fa-info"></i>
+                                    </div>
+                                    <div>
+                                        <h3
+                                            class="mb-3 text-2xl font-semibold text-[#23182c]"
+                                        >
+                                            Customer Support
+                                        </h3>
+                                        <p
+                                            class="text-base leading-7 text-[#707b8e]"
+                                        >
+                                            Lorem ipsum dolor sit amet
+                                            consectetur adipisicing elit. Nobis,
+                                            ipsa?
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="flex gap-3 py-3">
+                                    <div
+                                        class="flex h-[67px] w-[67px] flex-shrink-0 items-center justify-center rounded-full bg-gradient-to-t from-[#e78ae9] to-[#926ef8] text-3xl text-white"
+                                    >
+                                        <i class="fa-solid fa-palette"></i>
+                                    </div>
+                                    <div>
+                                        <h3
+                                            class="mb-3 text-2xl font-semibold text-[#23182c]"
+                                        >
+                                            Creative Design
+                                        </h3>
+                                        <p
+                                            class="text-base leading-7 text-[#707b8e]"
+                                        >
+                                            Lorem ipsum dolor sit amet
+                                            consectetur adipisicing elit. Nobis,
+                                            ipsa?
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- feature -->
+            <!-- services -->
+            <section class="bg-[#F4FEFF] py-8 md:py-14 lg:py-28">
+                <div class="container">
+                    <div
+                        class="mx-auto mb-7 max-w-xs text-center md:mb-9 md:max-w-xl lg:mb-12"
+                    >
+                        <h2
+                            class="text-3xl font-bold leading-[39px] text-[#2b044d] sm:text-[40px] sm:leading-[60px] lg:text-[50px]"
+                        >
+                            How Can We HelpYour with Appco!
+                        </h2>
+                    </div>
+                    <div
+                        class="mx-auto grid max-w-7xl grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3"
+                    >
+                        <!-- service box -->
+                        <div
+                            class="group mx-auto w-full max-w-sm rounded-md border border-transparent bg-white py-20 px-5 transition-all duration-300 hover:border-[#b8a2ff]"
+                        >
+                            <div
+                                class="after:contents-[''] after:h- [135px] relative z-0 mx-auto mb-7 flex h-[105px] w-[105px] items-center justify-center rounded-full bg-[#e88cea] text-3xl text-white transition-all duration-300 after:absolute after:-right-[29px] after:top-[-35px] after:-z-[1] after:w-[80px] after:bg-dot-bg group-hover:bg-[#835EF8]"
+                            >
+                                <i class="fa-solid fa-list-check"></i>
+                            </div>
+                            <div class="text-center">
+                                <h5>
+                                    <a
+                                        class="mb-5 block text-2xl text-[#2b044d] hover:text-[#835ef8]"
+                                        href=""
+                                    >
+                                        Easily Manage
+                                    </a>
+                                </h5>
+                                <p class="text-base leading-7 text-[#707b8e]">
+                                    Sorem spsum dolor sit amsectetur adipisclit,
+                                    seddo eiusmod tempor incididunt ut laborea.
+                                </p>
+                            </div>
+                        </div>
+                        <!-- service box -->
+                        <div
+                            class="mx-auto max-w-sm rounded-md border border-[#b8a2ff] bg-white py-20 px-5 transition-all duration-300"
+                        >
+                            <div
+                                class="after:contents-[''] relative z-0 mx-auto mb-7 flex h-[105px] w-[105px] items-center justify-center rounded-full bg-[#835EF8] text-3xl text-white transition-all duration-300 after:absolute after:-right-[29px] after:top-[-35px] after:-z-[1] after:h-[135px] after:w-[80px] after:bg-dot-bg"
+                            >
+                                <i class="fa-solid fa-money-check-dollar"></i>
+                            </div>
+                            <div class="text-center">
+                                <h5>
+                                    <a
+                                        class="mb-5 block text-2xl text-[#2b044d] hover:text-[#835ef8]"
+                                        href=""
+                                    >
+                                        Get Payments Easily
+                                    </a>
+                                </h5>
+                                <p class="text-base leading-7 text-[#707b8e]">
+                                    Sorem spsum dolor sit amsectetur adipisclit,
+                                    seddo eiusmod tempor incididunt ut laborea.
+                                </p>
+                            </div>
+                        </div>
+                        <!-- service box -->
+                        <div
+                            class="group mx-auto max-w-sm rounded-md border border-transparent bg-white py-20 px-5 transition-all duration-300 hover:border-[#b8a2ff]"
+                        >
+                            <div
+                                class="after:contents-[''] relative z-0 mx-auto mb-7 flex h-[105px] w-[105px] items-center justify-center rounded-full bg-[#e88cea] text-3xl text-white transition-all duration-300 after:absolute after:-right-[29px] after:top-[-35px] after:-z-[1] after:h-[135px] after:w-[80px] after:bg-dot-bg group-hover:bg-[#835EF8]"
+                            >
+                                <i class="fa-brands fa-telegram"></i>
+                            </div>
+                            <div class="text-center">
+                                <h5>
+                                    <a
+                                        class="mb-5 block text-2xl text-[#2b044d] hover:text-[#835ef8]"
+                                        href=""
+                                    >
+                                        Quick Message
+                                    </a>
+                                </h5>
+                                <p class="text-base leading-7 text-[#707b8e]">
+                                    Sorem spsum dolor sit amsectetur adipisclit,
+                                    seddo eiusmod tempor incididunt ut laborea.
+                                </p>
+                            </div>
+                        </div>
+                        <!-- service box -->
+                    </div>
+                </div>
+            </section>
+            <!-- services -->
+            <!-- applic-apps -->
+            <section class="py-8 px-[15px] md:py-14 lg:py-28">
+                <div class="grid grid-cols-1 items-center lg:grid-cols-2">
+                    <div
+                        class="xxl:left-[25%] relative mb-5 w-full lg:left-[7%] lg:max-w-sm xl:left-[10%] 2xl:left-[35%]"
+                    >
+                        <h2
+                            class="mb-4 text-[40px] font-bold leading-[52px] text-[#2b044d]"
+                        >
+                            Applic Apps Screenshot
+                        </h2>
+                        <p class="text-base leading-[30px] text-[#707b8e]">
+                            Lorem ipsum dolor sit amet, consecadipiscing elit,
+                            sed do eiusmod tempor incididunt ut ore et dolore
+                            magna aliqua. Quis ipsum suspendisse gravida. Risus
+                            commodo viverra maecenasan lacus vel facilisis.
+                        </p>
+                    </div>
+                    <div
+                        class="applic__slider owl-carousel owl-responsive owl-loaded breakpoint relative overflow-hidden xl:-left-[10%]"
+                    >
+                        <div class="mx-auto w-80">
+                            <img src="./img/slider1.webp" alt="" />
+                        </div>
+                        <div class="mx-auto w-80">
+                            <img src="./img/slider2.webp" alt="" />
+                        </div>
+                        <div class="mx-auto w-80">
+                            <img src="./img/slider3.webp" alt="" />
+                        </div>
+                        <div class="mx-auto w-80">
+                            <img src="./img/slider4.webp" alt="" />
+                        </div>
+                        <div class="mx-auto w-80">
+                            <img src="./img/slider5.webp" alt="" />
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- applic-apps -->
+            <!-- price plan -->
+            <section
+                class="relative z-0 bg-[url('/src/img/price.webp')] from-[#f9218d] to-[#6c19f6] py-8 before:absolute before:left-0 before:right-0 before:top-0 before:bottom-0 before:-z-[1] before:w-full before:bg-gradient-to-r before:opacity-95 before:content-[''] md:py-14 lg:py-28"
+            >
+                <div class="container">
+                    <div class="mx-auto mb-6 max-w-lg text-center">
+                        <h2
+                            class="text-[30px] font-bold capitalize leading-[39px] text-white md:text-[50px] md:leading-[60px]"
+                        >
+                            Choose your very best pricing plan
+                        </h2>
+                    </div>
+                    <div>
+                        <div
+                            class="group rounded bg-white py-8 px-4 transition-all duration-300"
+                        >
+                            <div
+                                class="border-b-2 border-[#F4F4F4] text-center"
+                            >
+                                <span
+                                    class="mb-3 block text-[24px] font-normal leading-[36px] text-[#57667e]"
+                                    >2 Years</span
+                                >
+                                <h4
+                                    class="mb-9 text-[50px] font-medium leading-[60px] text-[#6a56a6]"
+                                >
+                                    $05
+                                    <small
+                                        class="text-base font-medium text-[#6a56a6]"
+                                        >/ month</small
+                                    >
+                                </h4>
+                            </div>
+                            <div class="pt-9 text-center">
+                                <ul class="mb-9 flex flex-col gap-2">
+                                    <li
+                                        class="text-base font-light text-[#717081]"
+                                    >
+                                        Increase traffic 50%
+                                    </li>
+                                    <li
+                                        class="text-base font-light text-[#717081]"
+                                    >
+                                        E-mail support
+                                    </li>
+                                    <li
+                                        class="text-base font-light text-[#717081]"
+                                    >
+                                        10 Free Optimization
+                                    </li>
+                                    <li
+                                        class="text-base font-light text-[#717081]"
+                                    >
+                                        24/7 support
+                                    </li>
+                                </ul>
+                                <button
+                                    class="relative z-[1] cursor-pointer overflow-hidden rounded-[6px] border-0 bg-[#712fda] py-[30px] px-[40px] text-base font-normal uppercase leading-[0] text-white transition-all duration-300 before:absolute before:left-0 before:top-0 before:z-[1] before:h-full before:w-full before:scale-0 before:rounded-[5px] before:transition-transform before:duration-[.5s] before:ease-in before:content-[''] group-hover:before:bg-[#ff374b]"
+                                >
+                                    Get Started
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- price plan -->
+        </main>
+        <!-- main -->
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+            integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        ></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js"
+            integrity="sha512-6PM0qYu5KExuNcKt5bURAoT6KCThUmHRewN3zUFNaoI6Di7XJPTMoT6K0nsagZKk2OB4L7E3q1uQKHNHd4stIQ=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        ></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
+            integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        ></script>
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script src="./js/main.js"></script>
+    </body>
 </html>
